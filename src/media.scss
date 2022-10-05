@@ -7,9 +7,9 @@ $md: 1000px !default;
 $sm: 500px !default;
 
 // Max-width queries
-$max-lg: (max-width: $lg - $interval);
-$max-md: (max-width: $md - $interval);
-$max-sm: (max-width: $sm - $interval);
+$max-lg: (max-width: $lg - $-interval);
+$max-md: (max-width: $md - $-interval);
+$max-sm: (max-width: $sm - $-interval);
 
 // Min-width queries
 $min-lg: (min-width: $lg);
