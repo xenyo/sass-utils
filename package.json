@@ -1,5 +1,5 @@
 {
-  "name": "sass-utils",
+  "name": "@xenyo/sass-utils",
   "version": "1.0.0",
   "description": "Collection of useful Sass utilities",
   "author": "Parkle Lee <parkle.lee@xenyo.com>",
