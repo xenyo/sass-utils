@@ -1,0 +1,17 @@
+// Private constants
+$-interval: 0.02px;
+
+// Breakpoints
+$lg: 1500px !default;
+$md: 1000px !default;
+$sm: 500px !default;
+
+// Max-width queries
+$max-lg: (max-width: $lg - $interval);
+$max-md: (max-width: $md - $interval);
+$max-sm: (max-width: $sm - $interval);
+
+// Min-width queries
+$min-lg: (min-width: $lg);
+$min-md: (min-width: $md);
+$min-sm: (min-width: $sm);
