@@ -4,7 +4,6 @@
 @include describe('transition') {
   @include describe('default variables') {
     @include it('are defined') {
-      @include assert-equal($transition-property, all);
       @include assert-equal($transition-duration, 0.3s);
       @include assert-equal($transition-timing-function, ease-out);
     }
@@ -33,18 +32,7 @@
       }
     }
 
-    @include it('works with a comma separated transition properties') {
-      @include assert {
-        @include output {
-          @include transition(transform, opacity);
-        }
-        @include expect {
-          transition: transform 0.3s ease-out, opacity 0.3s ease-out;
-        }
-      }
-    }
-
-    @include it('works with a space separated transition properties') {
+    @include it('works with multiple transition properties') {
       @include assert {
         @include output {
           @include transition(transform opacity);
