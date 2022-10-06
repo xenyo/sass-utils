@@ -4,6 +4,10 @@
   "description": "Collection of useful Sass utilities",
   "author": "Parkle Lee <parkle.lee@xenyo.com>",
   "license": "GPL-3.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xenyo/sass-utils.git"
+  },
   "main": "src/index.scss",
   "style": "src/index.scss",
   "scripts": {
