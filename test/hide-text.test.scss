@@ -1,0 +1,17 @@
+@use 'true' as *;
+@use '../src' as *;
+
+@include describe('hide-text') {
+  @include it('works') {
+    @include assert {
+      @include output {
+        @include hide-text;
+      }
+      @include expect {
+        text-indent: 200%;
+        white-space: nowrap;
+        overflow: hidden;      
+      }
+    }
+  }
+}

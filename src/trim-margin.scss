@@ -1,9 +1,21 @@
-@mixin trim-margin {
-  &:first-child {
-    margin-top: 0;
-  }
+@use "sass:list";
 
+@mixin trim-margin($directions: top bottom) {
+  &:first-child {
+    @if list.index($directions, top) {
+      margin-top: 0;
+    }
+    @if list.index($directions, left) {
+      margin-left: 0;
+    }
+  }
+  
   &:last-child {
-    margin-bottom: 0;
+    @if list.index($directions, bottom) {
+      margin-bottom: 0;
+    }
+    @if list.index($directions, right) {
+      margin-right: 0;
+    }
   }
 }

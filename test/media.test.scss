@@ -1,0 +1,76 @@
+@use 'true' as *;
+@use '../src' as *;
+
+@include describe('media') {
+  @include describe('breakpoint variables') {
+    @include it('are defined') {
+      @include assert-equal($lg, 1500px);
+      @include assert-equal($md, 1000px);
+      @include assert-equal($sm, 500px);
+    }
+  }
+
+  @include describe('below mixin') {
+    @include it('works with breakpoint variables') {
+      @include assert {
+        @include output {
+          @include below($lg) {
+            display: none;
+          }
+        }
+        @include expect {
+          @media (max-width: 1499.98px) {
+            display: none;
+          }
+        }
+      }
+    }
+
+    @include it('works with literal values') {
+      @include assert {
+        @include output {
+          @include below(1280px) {
+            display: none;
+          }
+        }
+        @include expect {
+          @media (max-width: 1279.98px) {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+  @include describe('above mixin') {
+    @include it('works with breakpoint variables') {
+      @include assert {
+        @include output {
+          @include above($md) {
+            display: none;
+          }
+        }
+        @include expect {
+          @media (min-width: 1000px) {
+            display: none;
+          }
+        }
+      }
+    }
+
+    @include it('works with literal values') {
+      @include assert {
+        @include output {
+          @include above(1280px) {
+            display: none;
+          }
+        }
+        @include expect {
+          @media (min-width: 1280px) {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}

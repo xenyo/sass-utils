@@ -1,0 +1,88 @@
+@use 'true' as *;
+@use "../src" as *;
+
+@include describe('trim-margin') {
+  @include it('trims top and bottom margins by default') {
+    @include assert {
+      @include output {
+        @include trim-margin;
+      }
+      @include expect {
+        &:first-child {
+          margin-top: 0;
+        }
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  @include it('trims left and right margins') {
+    @include assert {
+      @include output {
+        @include trim-margin(left right);
+      }
+      @include expect {
+        &:first-child {
+          margin-left: 0;
+        }
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+
+  @include it('trims top margin') {
+    @include assert {
+      @include output {
+        @include trim-margin(top);
+      }
+      @include expect {
+        &:first-child {
+          margin-top: 0;
+        }
+      }
+    }
+  }
+
+  @include it('trims bottom margin') {
+    @include assert {
+      @include output {
+        @include trim-margin(bottom);
+      }
+      @include expect {
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  @include it('trims left margin') {
+    @include assert {
+      @include output {
+        @include trim-margin(left);
+      }
+      @include expect {
+        &:first-child {
+          margin-left: 0;
+        }
+      }
+    }
+  }
+
+  @include it('trims right margin') {
+    @include assert {
+      @include output {
+        @include trim-margin(right);
+      }
+      @include expect {
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}

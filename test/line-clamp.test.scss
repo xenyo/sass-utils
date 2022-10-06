@@ -1,0 +1,44 @@
+@use 'true' as *;
+@use '../src' as *;
+
+@include describe('line-clamp') {
+  @include it('clamps to 1 line by default') {
+    @include assert {
+      @include output {
+        @include line-clamp;
+      }
+      @include expect {
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+    }
+  }
+
+  @include it('clamps to n lines') {
+    @include assert {
+      @include output {
+        @include line-clamp(2);
+      }
+      @include expect {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+    }
+
+    @include assert {
+      @include output {
+        @include line-clamp(3);
+      }
+      @include expect {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+    }
+  }
+}
