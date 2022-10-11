@@ -73,4 +73,36 @@
       }
     }
   }
+
+  @include describe('between mixin') {
+    @include it('works with breakpoint variables') {
+      @include assert {
+        @include output {
+          @include between($md, $lg) {
+            display: none;
+          }
+        }
+        @include expect {
+          @media (min-width: 1000px) and (max-width: 1499.98px) {
+            display: none;
+          }
+        }
+      }
+    }
+
+    @include it('works with literal values') {
+      @include assert {
+        @include output {
+          @include between(768px, 1024px) {
+            display: none;
+          }
+        }
+        @include expect {
+          @media (min-width: 768px) and (max-width: 1023.98px) {
+            display: none;
+          }
+        }
+      }
+    }
+  }
 }

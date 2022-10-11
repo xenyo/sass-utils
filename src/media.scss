@@ -1,10 +1,10 @@
-// Private constants
-$-interval: 0.02px;
-
 // Breakpoints
 $lg: 1500px !default;
 $md: 1000px !default;
 $sm: 500px !default;
+
+// Interval between breakpoint ranges
+$-interval: 0.02px;
 
 // Mixins
 @mixin below($max-width) {
@@ -15,6 +15,12 @@ $sm: 500px !default;
 
 @mixin above($min-width) {
   @media (min-width: #{$min-width}) {
+    @content;
+  }
+}
+
+@mixin between($min-width, $max-width) {
+  @media (min-width: #{$min-width}) and (max-width: #{$max-width - $-interval}) {
     @content;
   }
 }

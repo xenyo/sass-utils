@@ -23,26 +23,15 @@ Add this to the top of any scss file in your project:
 @use '@xenyo/sass-utils' as *;
 ```
 
-Override default variables:
-
-```scss
-@use '@xenyo/sass-utils' as * with (
-  $sm: 768px,
-  $transition-duration: 0.7s,
-  // etc...
-);
-```
-
-To set project-wide defaults, create `sass-utils/_index.scss` in your project root:
+To set project-wide defaults, create `sass-utils/index.scss` in your project root:
 
 ```scss
 @forward '@xenyo/sass-utils' with (
   $sm: 768px,
-  $transition-duration: 0.7s,
   // etc...
 );
 
-// define additional variables or mixins
+// add additional variables or mixins
 ```
 
 Then add this to the top of any scss file in your project:
@@ -53,19 +42,7 @@ Then add this to the top of any scss file in your project:
 
 ## API Reference
 
-### animation
-
-#### $animation-duration
-
-The animation duration.
-
-Default: `0.3s`
-
-#### $animation-timing-function
-
-The animation timing function.
-
-Default: `ease-out`
+### animate
 
 #### animate()
 
@@ -87,10 +64,10 @@ Adds a keyframe animation with a unique, randomly-generated animation name.
 
 // Output
 .my-element {
-  animation: animation-u09hl8n 0.3s ease-out;
+  animation: animate-u09hl8n 0.3s ease-out;
 }
 
-@keyframes animation-u09hl8n {
+@keyframes animate-u09hl8n {
   from {
     opacity: 0;
   }
@@ -100,6 +77,13 @@ Adds a keyframe animation with a unique, randomly-generated animation name.
   }
 }
 ```
+
+#### Custom properties
+
+| Property | Default | Description |
+| --- | --- | --- |
+| `--animation-duration` | 0.3s | The animation duration. |
+| `--animation-timing-function` | ease-out | The animation timing function. |
 
 ### full-width
 
@@ -130,27 +114,9 @@ See https://css-tricks.com/line-clampin/
 
 ### media
 
-#### $lg
-
-The large breakpoint.
-
-Default: `1500px`
-
-#### $md
-
-The medium breakpoint.
-
-Default: `1000px`
-
-#### $lg
-
-The small breakpoint.
-
-Default: `500px`
-
 #### below($max-width)
 
-Outputs a media query that applies styles below the given width (exclusive).
+Outputs a media query that applies styles for viewports less than the given width.
 
 ```scss
 // SCSS
@@ -168,9 +134,9 @@ Outputs a media query that applies styles below the given width (exclusive).
 }
 ```
 
-#### above($max-width)
+#### above($min-width)
 
-Outputs a media query that applies styles above the given width (inclusive).
+Outputs a media query that applies styles for viewports greater than or equal to the given width.
 
 ```scss
 // SCSS
@@ -188,19 +154,35 @@ Outputs a media query that applies styles above the given width (inclusive).
 }
 ```
 
+#### between($min-width, $max-width)
+
+Outputs a media query that applies styles for viewports between the given widths, including `$min-width` and excluding `$max-width`.
+
+```scss
+// SCSS
+.my-element {
+  @include between($md, $lg) {
+    display: none;
+  }
+}
+
+// Output
+@media (min-width: 1000px) and (max-width: 1499.98px) {
+  .my-element {
+    display: none;
+  }
+}
+```
+
+#### Sass variables
+
+| Variable | Default | Description |
+| --- | --- | --- |
+| `$lg` | 1500px | The large breakpoint. |
+| `$md` | 1000px | The medium breakpoint. |
+| `$sm` | 500px | The small breakpoint. |
+
 ### transition
-
-#### $transition-duration
-
-The transition duration.
-
-Default: `0.3s`
-
-#### $transition-timing-function
-
-The transition timing function.
-
-Default: `ease-out`
 
 #### transition($properties: all)
 
@@ -245,6 +227,13 @@ Pass multiple propery names:
   transition: opacity 0.3s ease-out, transform 0.3s ease-out;
 }
 ```
+
+#### Custom properties
+
+| Property | Default | Description |
+| --- | --- | --- |
+| `--transition-duration` | 0.3s | The transition duration. |
+| `--transition-timing-function` | ease-out | The transition timing function. |
 
 ### trim-margin
 

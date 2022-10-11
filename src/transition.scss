@@ -1,13 +1,13 @@
 @use "sass:list";
 
-$transition-duration: 0.3s !default;
-$transition-timing-function: ease-out !default;
-
 @mixin transition($properties: all) {
+  $duration: var(--transition-duration, 0.3s);
+  $timing-function: var(--transition-timing-function, ease-out);
+
   $transitions: ();
 
   @each $property in $properties {
-    $transition: $property $transition-duration $transition-timing-function;
+    $transition: $property $duration $timing-function;
     $transitions: list.append($transitions, $transition, comma);
   }
 

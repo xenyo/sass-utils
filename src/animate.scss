@@ -1,0 +1,12 @@
+@use 'sass:string';
+
+@mixin animate($name: string.unquote('animate-' + string.unique-id())) {
+  $duration: var(--animation-duration, 0.3s);
+  $timing-function: var(--animation-timing-function, ease-out);
+  
+  animation: $name $duration $timing-function;
+  
+  @keyframes #{$name} {
+    @content;
+  }
+}

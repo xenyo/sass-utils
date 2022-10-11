@@ -1,45 +1,37 @@
 @use 'true' as *;
 @use '../src' as *;
 
-@include describe('transition') {
-  @include describe('default variables') {
-    @include it('are defined') {
-      @include assert-equal($transition-duration, 0.3s);
-      @include assert-equal($transition-timing-function, ease-out);
+@include describe('transition mixin') {
+  @include it('works without parameters') {
+    @include assert {
+      @include output {
+        @include transition;
+      }
+      @include expect {
+        transition: all var(--transition-duration, 0.3s) var(--transition-timing-function, ease-out);
+      }
     }
   }
 
-  @include describe('mixin') {
-    @include it('works without parameters') {
-      @include assert {
-        @include output {
-          @include transition;
-        }
-        @include expect {
-          transition: all 0.3s ease-out;
-        }
+  @include it('works with a transition property') {
+    @include assert {
+      @include output {
+        @include transition(transform);
+      }
+      @include expect {
+        transition: transform var(--transition-duration, 0.3s) var(--transition-timing-function, ease-out);
       }
     }
+  }
 
-    @include it('works with a transition property') {
-      @include assert {
-        @include output {
-          @include transition(transform);
-        }
-        @include expect {
-          transition: transform 0.3s ease-out;
-        }
+  @include it('works with multiple transition properties') {
+    @include assert {
+      @include output {
+        @include transition(transform opacity);
       }
-    }
-
-    @include it('works with multiple transition properties') {
-      @include assert {
-        @include output {
-          @include transition(transform opacity);
-        }
-        @include expect {
-          transition: transform 0.3s ease-out, opacity 0.3s ease-out;
-        }
+      @include expect {
+        transition: transform var(--transition-duration, 0.3s) var(--transition-timing-function, ease-out),
+          opacity var(--transition-duration, 0.3s) var(--transition-timing-function, ease-out);
       }
     }
   }

@@ -2,42 +2,33 @@
 @use '../src' as *;
 
 @include describe('animate') {
-  @include describe('default variables') {
-    @include it('are defined') {
-      @include assert-equal($animation-duration, 0.3s);
-      @include assert-equal($animation-timing-function, ease-out);
+  @include it('works with no parameters') {
+    @include assert {
+      @include output {
+        @include animate {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        };
+      }
+      @include contains {
+      }
     }
   }
 
-  @include describe('animate mixin') {
-    @include it('works with no parameters') {
-      @include assert {
-        @include output {
-          @include animate {
-            from { opacity: 0; }
-            to { opacity: 1; }
-          };
-        }
-        @include contains {
-        }
+  @include it('works with an animation name') {
+    @include assert {
+      @include output {
+        @include animate(test) {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        };
       }
-    }
+      @include expect {
+        animation: test var(--animation-duration, 0.3s) var(--animation-timing-function, ease-out);
 
-    @include it('works with an animation name') {
-      @include assert {
-        @include output {
-          @include animate(test) {
-            from { opacity: 0; }
-            to { opacity: 1; }
-          };
-        }
-        @include expect {
-          animation: test 0.3s ease-out;
-
-          @keyframes test {
-            from { opacity: 0; }
-            to { opacity: 1; }
-          }
+        @keyframes test {
+          from { opacity: 0; }
+          to { opacity: 1; }
         }
       }
     }
