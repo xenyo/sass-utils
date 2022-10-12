@@ -1,6 +1,6 @@
 {
   "name": "@xenyo/sass-utils",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "Collection of useful Sass utilities",
   "author": "Parkle Lee <parkle.lee@xenyo.com>",
   "license": "GPL-3.0",
