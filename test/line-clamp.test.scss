@@ -1,5 +1,5 @@
 @use 'true' as *;
-@use '../src' as *;
+@use '..' as *;
 
 @include describe('line-clamp') {
   @include it('clamps to 1 line by default') {

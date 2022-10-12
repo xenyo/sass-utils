@@ -1,5 +1,5 @@
 @use 'true' as *;
-@use '../src' as *;
+@use '..' as *;
 
 @include describe('hide-text') {
   @include it('works') {

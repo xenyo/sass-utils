@@ -8,8 +8,8 @@
     "type": "git",
     "url": "https://github.com/xenyo/sass-utils.git"
   },
-  "main": "src/index.scss",
-  "style": "src/index.scss",
+  "main": "index.scss",
+  "style": "index.scss",
   "scripts": {
     "test": "jest",
     "watch": "jest --watch"

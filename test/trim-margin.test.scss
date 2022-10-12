@@ -1,5 +1,5 @@
 @use 'true' as *;
-@use "../src" as *;
+@use ".." as *;
 
 @include describe('trim-margin') {
   @include it('trims top and bottom margins by default') {
