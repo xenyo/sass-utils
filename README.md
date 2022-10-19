@@ -120,6 +120,8 @@ Outputs a media query that applies styles for viewports less than the given widt
 
 ```scss
 // SCSS
+$lg: 1500px;
+
 .my-element {
   @include below($lg) {
     display: none;
@@ -140,6 +142,8 @@ Outputs a media query that applies styles for viewports greater than or equal to
 
 ```scss
 // SCSS
+$lg: 1500px;
+
 .my-element {
   @include above($lg) {
     display: none;
@@ -160,6 +164,9 @@ Outputs a media query that applies styles for viewports between the given widths
 
 ```scss
 // SCSS
+$md: 1000px;
+$lg: 1500px;
+
 .my-element {
   @include between($md, $lg) {
     display: none;
