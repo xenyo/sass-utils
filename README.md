@@ -174,14 +174,6 @@ Outputs a media query that applies styles for viewports between the given widths
 }
 ```
 
-#### Sass variables
-
-| Variable | Default | Description |
-| --- | --- | --- |
-| `$lg` | 1500px | The large breakpoint. |
-| `$md` | 1000px | The medium breakpoint. |
-| `$sm` | 500px | The small breakpoint. |
-
 ### transition
 
 #### transition($properties: all)

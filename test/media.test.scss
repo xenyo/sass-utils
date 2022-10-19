@@ -1,15 +1,12 @@
 @use 'true' as *;
 @use '..' as *;
 
-@include describe('media') {
-  @include describe('breakpoint variables') {
-    @include it('are defined') {
-      @include assert-equal($lg, 1500px);
-      @include assert-equal($md, 1000px);
-      @include assert-equal($sm, 500px);
-    }
-  }
+// Breakpoints
+$lg: 1500px;
+$md: 1000px;
+$sm: 500px;
 
+@include describe('media') {
   @include describe('below mixin') {
     @include it('works with breakpoint variables') {
       @include assert {
