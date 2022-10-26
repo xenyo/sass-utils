@@ -3,19 +3,44 @@ $-interval: 0.02px;
 
 // Mixins
 @mixin below($max-width) {
-  @media (max-width: #{$max-width - $-interval}) {
+  @if ($max-width) {
+    @media (max-width: #{$max-width - $-interval}) {
+      @content;
+    }
+  }
+  @else {
     @content;
   }
 }
 
 @mixin above($min-width) {
-  @media (min-width: #{$min-width}) {
+  @if ($min-width) {
+    @media (min-width: #{$min-width}) {
+      @content;
+    }
+  }
+  @else {
     @content;
   }
 }
 
 @mixin between($min-width, $max-width) {
-  @media (min-width: #{$min-width}) and (max-width: #{$max-width - $-interval}) {
+  @if ($min-width and $max-width) {
+    @media (min-width: #{$min-width}) and (max-width: #{$max-width - $-interval}) {
+      @content;
+    }
+  }
+  @else if ($max-width) {
+    @include below($max-width) {
+      @content;
+    }
+  }
+  @else if ($min-width) {
+    @include above($min-width) {
+      @content;
+    }
+  }
+  @else {
     @content;
   }
 }

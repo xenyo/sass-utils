@@ -37,6 +37,29 @@ $sm: 500px;
         }
       }
     }
+
+    @include it('works with falsey values') {
+      @include assert {
+        @include output {
+          @include below(false) {
+            display: none;
+          }
+        }
+        @include expect {
+          display: none;
+        }
+      }
+      @include assert {
+        @include output {
+          @include below(null) {
+            display: none;
+          }
+        }
+        @include expect {
+          display: none;
+        }
+      }
+    }
   }
 
   @include describe('above mixin') {
@@ -69,6 +92,29 @@ $sm: 500px;
         }
       }
     }
+
+    @include it('works with falsey values') {
+      @include assert {
+        @include output {
+          @include above(false) {
+            display: none;
+          }
+        }
+        @include expect {
+          display: none;
+        }
+      }
+      @include assert {
+        @include output {
+          @include above(null) {
+            display: none;
+          }
+        }
+        @include expect {
+          display: none;
+        }
+      }
+    }
   }
 
   @include describe('between mixin') {
@@ -98,6 +144,83 @@ $sm: 500px;
           @media (min-width: 768px) and (max-width: 1023.98px) {
             display: none;
           }
+        }
+      }
+    }
+
+    @include it('works with falsey min-width') {
+      @include assert {
+        @include output {
+          @include between(false, $lg) {
+            display: none;
+          }
+        }
+        @include expect {
+          @media (max-width: 1499.98px) {
+            display: none;
+          }
+        }
+      }
+      @include assert {
+        @include output {
+          @include between(null, $lg) {
+            display: none;
+          }
+        }
+        @include expect {
+          @media (max-width: 1499.98px) {
+            display: none;
+          }
+        }
+      }
+    }
+
+    @include it('works with falsey max-width') {
+      @include assert {
+        @include output {
+          @include between($lg, false) {
+            display: none;
+          }
+        }
+        @include expect {
+          @media (min-width: 1500px) {
+            display: none;
+          }
+        }
+      }
+      @include assert {
+        @include output {
+          @include between($lg, null) {
+            display: none;
+          }
+        }
+        @include expect {
+          @media (min-width: 1500px) {
+            display: none;
+          }
+        }
+      }
+    }
+
+    @include it('works with falsey min-width and max-width') {
+      @include assert {
+        @include output {
+          @include between(false, false) {
+            display: none;
+          }
+        }
+        @include expect {
+          display: none;
+        }
+      }
+      @include assert {
+        @include output {
+          @include between(null, null) {
+            display: none;
+          }
+        }
+        @include expect {
+          display: none;
         }
       }
     }
