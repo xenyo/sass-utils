@@ -10,7 +10,7 @@ npm i @xenyo/sass-utils
 
 ## Usage
 
-Create `sass-utils/_index.scss` in your project root with the following code:
+Create `sass-utils/_index.scss` in your project root with the following contents:
 
 ```scss
 @forward '@xenyo/sass-utils';
