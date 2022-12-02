@@ -33,6 +33,22 @@ Alternatively, if you don't need to add any customizations, just use this:
 
 The `sass-utils/_index.scss` won't be needed in this case.
 
+## Tests
+
+All utilites are unit tested with [True](https://github.com/oddbird/true).
+
+Run tests:
+
+```
+npm test
+```
+
+Watch files for changes:
+
+```
+npm run watch
+```
+
 ## API Reference
 
 - [animate](#animate)
