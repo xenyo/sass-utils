@@ -35,6 +35,17 @@ The `sass-utils/_index.scss` won't be needed in this case.
 
 ## API Reference
 
+- [animate](#animate)
+- [full-width](#full-width)
+- [hide-text](#hide-text)
+- [line-clamp](#line-clamp)
+- [media](#media)
+  - [below](#belowmax-width)
+  - [above](#abovemin-width)
+  - [between](#betweenmin-width-max-width)
+- [transition](#transition)
+- [trim-margin](#trim-margin)
+
 ### animate
 
 #### animate()
@@ -42,7 +53,7 @@ The `sass-utils/_index.scss` won't be needed in this case.
 Adds a keyframe animation with a unique, randomly-generated animation name.
 
 ```scss
-// SCSS
+// Source
 .my-element {
   @include animate {
     from {
@@ -112,7 +123,7 @@ See https://css-tricks.com/line-clampin/
 Outputs a media query that applies styles for viewports less than the given width.
 
 ```scss
-// SCSS
+// Source
 $lg: 1500px;
 
 .my-element {
@@ -134,7 +145,7 @@ $lg: 1500px;
 Outputs a media query that applies styles for viewports greater than or equal to the given width.
 
 ```scss
-// SCSS
+// Source
 $lg: 1500px;
 
 .my-element {
@@ -156,7 +167,7 @@ $lg: 1500px;
 Outputs a media query that applies styles for viewports between the given widths, including `$min-width` and excluding `$max-width`.
 
 ```scss
-// SCSS
+// Source
 $md: 1000px;
 $lg: 1500px;
 
@@ -181,7 +192,7 @@ $lg: 1500px;
 Applies a transition to the given property names.
 
 ```scss
-// SCSS
+// Source
 .my-element {
   @include transition;
 }
@@ -195,7 +206,7 @@ Applies a transition to the given property names.
 Pass a single property name:
 
 ```scss
-// SCSS
+// Source
 .my-element {
   @include transition(opacity);
 }
@@ -209,7 +220,7 @@ Pass a single property name:
 Pass multiple propery names:
 
 ```scss
-// SCSS
+// Source
 .my-element {
   @include transition(opacity transform);
 }
@@ -234,7 +245,7 @@ Pass multiple propery names:
 Trims the margins of first-child and last-child elements.
 
 ```scss
-// SCSS
+// Source
 .my-element {
   margin: 10px;
 
@@ -259,7 +270,7 @@ Pass any combination of `top`, `bottom`, `left` and `right` to trim in those
 directions only:
 
 ```scss
-// SCSS
+// Source
 .my-element {
   margin: 10px;
 
