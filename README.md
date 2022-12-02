@@ -111,16 +111,47 @@ Adds a keyframe animation with a unique, randomly-generated animation name.
 
 Forces an element to be the width of the browser window.
 
+```scss
+// Source
+.my-element {
+  @include full-width;
+}
+
+// Output
+.my-element {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+```
+
 See https://css-tricks.com/full-width-containers-limited-width-parents/
 
 This method ignores the width of the vertical scrollbar, which can lead to
-unexpected results. Use sparingly.
+unexpected results.
 
 ### hide-text
 
 #### hide-text()
 
 Hides the text inside an element without affecting any other child elements.
+
+```scss
+// Source
+.my-element {
+  @include hide-text();
+}
+
+// Output
+.my-element {
+  text-indent: 200%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+```
 
 See https://stackoverflow.com/questions/471510/hide-text-using-css
 
@@ -129,6 +160,21 @@ See https://stackoverflow.com/questions/471510/hide-text-using-css
 #### line-clamp($lines: 1)
 
 Clamps the text inside an element to N lines.
+
+```scss
+// Source
+.my-element {
+  @include line-clamp(3);
+}
+
+// Output
+.my-element {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+```
 
 See https://css-tricks.com/line-clampin/
 
