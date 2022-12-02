@@ -84,7 +84,7 @@ Adds a keyframe animation with a unique, randomly-generated animation name.
 
 // Output
 .my-element {
-  animation: animate-u09hl8n 0.3s ease-out;
+  animation: animate-u09hl8n var(--animation-duration) var(--animation-timing-function);
 }
 
 @keyframes animate-u09hl8n {
@@ -261,7 +261,7 @@ Applies a transition to the given property names.
 
 // Output
 .my-element {
-  transition: all 0.3s ease-out;
+  transition: all var(--transition-duration) var(--transition-timing-function);
 }
 ```
 
@@ -275,7 +275,7 @@ Pass a single property name:
 
 // Output
 .my-element {
-  transition: opacity 0.3s ease-out;
+  transition: opacity var(--transition-duration) var(--transition-timing-function);
 }
 ```
 
@@ -289,7 +289,7 @@ Pass multiple propery names:
 
 // Output
 .my-element {
-  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+  transition: opacity var(--transition-duration) var(--transition-timing-function), transform var(--transition-duration) var(--transition-timing-function);
 }
 ```
 
