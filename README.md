@@ -5,40 +5,33 @@ General-purpose Sass utils for Xenyo web development projects.
 ## Installation
 
 ```bash
-# npm
 npm i @xenyo/sass-utils
-
-# yarn
-yarn add @xenyo/sass-utils
-
-# pnpm
-pnpm add @xenyo/sass-utils
 ```
 
 ## Usage
 
-Add this to the top of any scss file in your project:
+Create `sass-utils/_index.scss` in your project root with the following code:
+
+```scss
+@forward '@xenyo/sass-utils';
+
+// additional variables or mixins
+// DO NOT output any CSS here
+```
+
+Then, add this to the top of your scss files:
+
+```scss
+@use 'sass-utils' as *;
+```
+
+Alternatively, if you don't need to add any customizations, just use this:
 
 ```scss
 @use '@xenyo/sass-utils' as *;
 ```
 
-To set project-wide defaults, create `sass-utils/index.scss` in your project root:
-
-```scss
-@forward '@xenyo/sass-utils' with (
-  $sm: 768px,
-  // etc...
-);
-
-// add additional variables or mixins
-```
-
-Then add this to the top of any scss file in your project:
-
-```scss
-@use 'sass-utils' as *;
-```
+The `sass-utils/_index.scss` won't be needed in this case.
 
 ## API Reference
 
