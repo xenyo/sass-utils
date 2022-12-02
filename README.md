@@ -15,8 +15,8 @@ Create `sass-utils/_index.scss` in your project root with the following code:
 ```scss
 @forward '@xenyo/sass-utils';
 
-// additional variables or mixins
-// DO NOT output any CSS here
+// Add custom variables or mixins here
+// DO NOT output any CSS
 ```
 
 Then, add this to the top of your scss files:
